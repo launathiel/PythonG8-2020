@@ -48,7 +48,7 @@ mv moodle-latest-310.tgz /var/www/html
 ```bash
 cd /var/www/html
 tar -xvzf moodle-latest-310.tgz
-ca /moodle
+cd /moodle
 mv -r ./* /var/www/html
 rm -r moodle
 ```
