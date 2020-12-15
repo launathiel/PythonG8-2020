@@ -19,8 +19,8 @@ Menjalankan MySQL Buat user MySQL untuk moodle, dan berikan hak akses.
 mysql -u root -p
 
 CREATE DATABASE moodle DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
-CREATE USER 'moodleuser'@'localhost' IDENTIFIED BY 'passwordanda';
-GRANT SELECT,INSERT,UPDATE,DELETE,CREATE,CREATE TEMPORARY TABLES,DROP,INDEX,ALTER ON moodle.* TO moodleuser@localhost;
+CREATE USER 'adaptive'@'localhost' IDENTIFIED BY 'network';
+GRANT SELECT,INSERT,UPDATE,DELETE,CREATE,CREATE TEMPORARY TABLES,DROP,INDEX,ALTER ON moodle.* TO adaptive@localhost;
 FLUSH PRIVILEGES;
 exit
 ```
@@ -48,11 +48,14 @@ mv moodle-latest-310.tgz /var/www/html
 ```bash
 cd /var/www/html
 tar -xvzf moodle-latest-310.tgz
+ca /moodle
+mv -r ./* /var/www/html
+rm -r moodle
 ```
 ## Ganti kepemilikan folder Berikan izin Hak akses dan Buat folder moodledata
 ```bash
-chown -R www-data:www-data /var/www/html/moodle
-chmod 755 /var/www/html/moodle
+chown -R www-data:www-data /var/www/html/
+chmod 755 /var/www/html/
 mkdir /var/www/moodledata
 chmod 755 /var/www/moodledata/
 chown -R www-data:www-data /var/www/moodledata
